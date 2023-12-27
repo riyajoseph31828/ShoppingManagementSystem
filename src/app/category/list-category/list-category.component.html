@@ -1,0 +1,19 @@
+<!--<p>list-category works!</p>-->
+
+<h1>Category List</h1>
+
+<table class="table table-striped " >
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let category of list">
+            <td>{{category.id}}</td>
+            <td>{{category.name}}</td>
+            <td><button style="width:40%;margin-left:4%;margin-right:4%" class="btn btn-primary" [routerLink]="['/categories/edit/',category.id]">Edit</button></td>
+        </tr>
+    </tbody><br>
+    
+</table>

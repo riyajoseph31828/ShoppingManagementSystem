@@ -1,0 +1,39 @@
+<h3>Login</h3>
+ 
+<form [formGroup]="form" (ngSubmit)="submit()">
+ 
+<div class="form-group">
+    <label class="form-label" for="email">Email</label>
+    <input class="form-control" type="text" id="price" formControlName="email">
+    <div *ngIf="form.hasError('minlength','email') && (form.controls['email'].touched ||
+        form.controls['email'].dirty)" class="alert alert-danger " role="alert">
+        Minlength of Email is 1
+    </div>
+    <div *ngIf="form.hasError('required','email') && (form.controls['email'].touched ||
+        form.controls['email'].dirty)" class="alert alert-danger " role="alert">
+       Email is Required.
+    </div>
+</div><br>
+ 
+<div class="form-group">
+    <label class="form-label" for="password">Password</label>
+    <input class="form-control" type="password" id="password" formControlName="password">
+    <div *ngIf="form.hasError('minlength','password') && (form.controls['password'].touched ||
+        form.controls['password'].dirty)" class="alert alert-danger " role="alert">
+        Minlength of Password is 1
+    </div>
+    <div *ngIf="form.hasError('required','password') && (form.controls['password'].touched ||
+        form.controls['password'].dirty)" class="alert alert-danger " role="alert">
+       Password is Required.
+    </div>
+</div><br>
+ 
+<div class="form-group">
+    <input class="btn btn-secondary " [disabled]="form.invalid" type="submit" value="Login">
+    <span>|</span>
+    <input class="btn btn-primary "  type="button"  value="Register" [routerLink]="['/register']">
+</div>
+ 
+ 
+</form>
+ 

@@ -1,0 +1,68 @@
+<div class="container">
+    <h1>Register </h1>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="form-group" hidden>
+            <label class="form-label " for="id">Id</label>
+            <input class="form-control " type="number" id="id" formControlName="id">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-control" type="text" id="name" formControlName="name">
+            <div *ngIf="form.hasError('required','name') && (form.controls['name'].touched ||
+            form.controls['name'].dirty)" class="alert alert-danger " role="alert">
+                Name is required.
+            </div>
+            <div *ngIf="form.hasError('minlength','name') && (form.controls['name'].touched ||
+            form.controls['name'].dirty)" class="alert alert-danger " role="alert">
+              Minimum length of Name is 1.
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-control" type="email" id="email" formControlName="email">
+            <div *ngIf="form.hasError('email','email') && (form.controls['email'].touched ||
+            form.controls['email'].dirty)" class="alert alert-danger " role="alert">
+                Minimum length of Email is 1.
+            </div>
+            <div *ngIf="form.hasError('required','email') && (form.controls['email'].touched ||
+            form.controls['email'].dirty)" class="alert alert-danger " role="alert">
+                Email is required.
+            </div>
+        </div><br>
+        <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <input class="form-control" type="password" id="password" formControlName="password">
+            <div *ngIf="form.hasError('required','password') && (form.controls['password'].touched ||
+            form.controls['password'].dirty)" class="alert alert-danger " role="alert">
+                Password is required.
+            </div>
+        </div><br>
+
+        <div class="form-group">
+            <label class="form-label " for="dateOfBirth">Date of birth</label>
+            <input class="form-control " type="date" id="dateOfBirth" formControlName="dateOfBirth">
+            <div *ngIf="form.hasError('required','dateOfBirth') && (form.controls['dateOfBirth'].touched ||
+            form.controls['dateOfBirth'].dirty)" class="alert alert-danger " role="alert">
+                Date of Birth is required.
+            </div>
+        </div><br>
+        <div class="form-group" overflow-hidden >
+            <label class="form-label " for="role">Role</label>
+            <input class="form-control " type="number" id="role" formControlName="role">
+            <div *ngIf="form.hasError('required','role') && (form.controls['role'].touched ||
+            form.controls['role'].dirty)" class="alert alert-danger " role="alert">
+                Role is required.
+            </div>
+        </div><br>
+
+       
+
+        <div class="form-group">
+            <input class="btn btn-primary " [disabled]="form.invalid" type="submit" value="Register">
+            <span>|</span>
+            <input class="btn btn-secondary  " type="button" value="Login" [routerLink]="['']">
+        </div>
+
+    </form>
+</div>
